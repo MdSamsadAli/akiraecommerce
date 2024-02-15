@@ -6,8 +6,8 @@ import {
   Cart,
   Header,
   Footer,
-  NotFoundPage,
   Contact,
+  NotFoundPage,
 } from "./pages/index";
 
 function App() {

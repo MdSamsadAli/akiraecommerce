@@ -1,10 +1,10 @@
-import TopBar from "./common/TopBar";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import Cart from "./pages/Cart";
-import Header from "./common/Header";
-import Footer from "./common/Footer";
-import NotFoundPage from "./pages/NotFoundPage";
-import Contact from "./pages/Contact";
+import TopBar from "./../common/TopBar";
+import Home from "./Home";
+import Shop from "./Shop";
+import Cart from "./Cart";
+import Contact from "./Contact";
+import NotFoundPage from "./NotFoundPage";
+import Header from "./../common/Header";
+import Footer from "./../common/Footer";
 
-export { TopBar, Home, Shop, Cart, Header, Footer, NotFoundPage, Contact };
+export { TopBar, Home, Shop, Cart, Header, Footer, Contact, NotFoundPage };
