@@ -25,3 +25,32 @@ export const navbar = [
     nav: "Contact",
   },
 ];
+
+export const banners = [
+  {
+    banner: "../images/slider3.jpg",
+  },
+  {
+    banner: "../images/slider2.jpg",
+  },
+  {
+    banner: "../images/slider1.jpg",
+  },
+];
+
+export const bannar_down = [
+  {
+    img: "../images/MEN.jpg",
+    name: "MEN",
+  },
+  {
+    img: "../images/WOMEN.jpg",
+    name: "WOMEN",
+
+  },
+  {
+    img: "../images/ACCESSORIES.jpg",
+    name: "ACCESSORIES",
+
+  },
+];
