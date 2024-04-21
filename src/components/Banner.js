@@ -3,7 +3,7 @@ import { bannar_down, banners } from "../data/Data";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BiArrowFromRight, BiArrowFromLeft } from "react-icons/bi";
+import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
 
 const Banner = () => {
   var settings = {
@@ -14,15 +14,15 @@ const Banner = () => {
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 2000,
-    nextArrow: <BiArrowFromLeft />,
-    prevArrow: <BiArrowFromRight />,
+    nextArrow: <BiChevronRight />,
+    prevArrow: <BiChevronLeft />,
   };
   return (
     <div>
       <div className="w-10/12 m-auto">
         <Slider {...settings}>
           {banners.map((data, key) => (
-            <div key={key} className="relative">
+            <div key={key}>
               <img src={data.banner} alt="banner" className="w-full" />
               <div className="banner-items absolute top-1/2 left-1/2 text-white w-1/2">
                 <h2>Men Collections</h2>
@@ -37,7 +37,7 @@ const Banner = () => {
 
         <div className="mwa flex gap-8 mt-8 ">
           {bannar_down.map((val, index) => (
-            <div className="w-1/3 overflow-hidden relative">
+            <div className="w-1/3 overflow-hidden relative" key={index}>
               <img
                 src={val.img}
                 alt="womenmenaccessories"
