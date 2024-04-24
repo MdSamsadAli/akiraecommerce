@@ -9,12 +9,11 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
     (state) => state.cart
   );
 
-  useEffect(
-    () => {
-      dispatch(getCartTotal());
-    },
-    useSelector((state) => state.cart)
-  );
+  const cartSelector = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [cartSelector]);
 
   const removeItemFromCart = (itemId) => {
     dispatch(removeItem({ id: itemId }));
