@@ -134,6 +134,46 @@ export const feateures = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
+
+  {
+    id: 7,
+    img: "../images/red.jpg",
+    tag: "new",
+    btn: "Select Options",
+    category: "Womens",
+    title: "Kurti",
+    short_description: "Lorem ipsum dolor",
+    rating: Array(5).fill({ icon: <IoStarOutline /> }),
+    price: "129.00",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
+  },
+  {
+    id: 8,
+    img: "../images/black_face.jpg",
+    tag: "new",
+    btn: "Select Options",
+    category: "Womens",
+    title: "Kurti",
+    short_description: "Lorem ipsum dolor",
+    rating: Array(5).fill({ icon: <IoStarOutline /> }),
+    price: "129.00",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
+  },
+  {
+    id: 9,
+    img: "../images/black_side.jpg",
+    tag: "new",
+    btn: "Select Options",
+    category: "Womens",
+    title: "Kurti",
+    short_description: "Lorem ipsum dolor",
+    rating: Array(5).fill({ icon: <IoStarOutline /> }),
+    price: "129.00",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
+  },
 ];
 
 export const reviews = [

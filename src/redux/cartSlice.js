@@ -41,14 +41,32 @@ const cartSlice = createSlice({
       }
     },
 
+    // updateQuantity: (state, action) => {
+    //   const { id, quantity } = action.payload;
+    //   const productToUpdate = state.data.find((product) => product.id === id);
+
+    //   if (productToUpdate) {
+    //     const validQuantity = Math.max(quantity || 1, 1);
+    //     productToUpdate.quantity = validQuantity;
+    //     productToUpdate.totalPrice = productToUpdate.price * validQuantity;
+    //   }
+    // },
+
     updateQuantity: (state, action) => {
       const { id, quantity } = action.payload;
-      const productToUpdate = state.data.find((product) => product.id === id);
+      const productIndex = state.data.findIndex((product) => product.id === id);
 
-      if (productToUpdate) {
-        const validQuantity = Math.max(quantity || 1, 1);
-        productToUpdate.quantity = validQuantity;
-        productToUpdate.totalPrice = productToUpdate.price * validQuantity;
+      if (productIndex !== -1) {
+        const updatedProduct = {
+          ...state.data[productIndex],
+          quantity: Math.max(quantity || 1, 1),
+        };
+
+        updatedProduct.totalPrice =
+          updatedProduct.price * updatedProduct.quantity;
+
+        state.data[productIndex] = updatedProduct;
+        storeInLocalStorage(state.data);
       }
     },
 

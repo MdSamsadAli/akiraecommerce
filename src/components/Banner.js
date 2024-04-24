@@ -8,11 +8,11 @@ import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
 const Banner = () => {
   var settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     nextArrow: <BiChevronRight />,
     prevArrow: <BiChevronLeft />,
@@ -22,9 +22,9 @@ const Banner = () => {
       <div className="w-10/12 m-auto">
         <Slider {...settings}>
           {banners.map((data, key) => (
-            <div key={key}>
+            <div className="relative" key={key}>
               <img src={data.banner} alt="banner" className="w-full" />
-              <div className="banner-items absolute top-1/2 left-1/2 text-white w-1/2">
+              <div className="banner-items">
                 <h2>Men Collections</h2>
                 <h1>Get Up to 50% Off Select Styles.</h1>
                 <button type="button" className="mt-4 btn pt-3 pb-3 pr-6 pl-6">

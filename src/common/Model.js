@@ -1,14 +1,46 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart, getCartTotal, updateQuantity } from "../redux/cartSlice";
+import { PiMinus, PiPlus } from "react-icons/pi";
 
 export const Model = ({ isModalOpen, data, handleClose }) => {
+  const [qty, setQty] = useState(1);
+
   useEffect(() => {
     if (isModalOpen) {
       document.body.classList.add("modal-open");
     } else {
+      setQty(1);
       document.body.classList.remove("modal-open");
     }
   }, [isModalOpen]);
+
+  const dispatch = useDispatch();
+  const addItemToCart = (item) => {
+    let totalPrice = qty * item.price;
+
+    const tempProduct = {
+      ...item,
+      quantity: qty,
+      totalPrice,
+    };
+
+    dispatch(addToCart(tempProduct));
+    dispatch(getCartTotal());
+  };
+
+  const increaseQuantity = (itemId, currentQuantity) => {
+    const newQty = currentQuantity + 1;
+    setQty(newQty);
+    dispatch(updateQuantity({ id: itemId, quantity: newQty }));
+  };
+
+  const decreaseQuantity = (itemId, currentQuantity) => {
+    const newQty = Math.max(currentQuantity - 1, 1);
+    setQty(newQty);
+    dispatch(updateQuantity({ id: itemId, quantity: newQty }));
+  };
   return (
     <>
       <div>
@@ -70,18 +102,27 @@ export const Model = ({ isModalOpen, data, handleClose }) => {
                   <p className="text-green-700">In Stock 300 Items</p>
                   <div className="flex items-center">
                     <div className="flex mr-3">
-                      <button className="border mt-4  pt-3 pb-3 pr-6 pl-6">
-                        +
+                      <button
+                        className="border mt-4  pt-3 pb-3 pr-6 pl-6"
+                        onClick={() => increaseQuantity(data.id, qty)}
+                      >
+                        <PiPlus />
                       </button>
                       <span className=" border mt-4  pt-3 pb-3 pr-6 pl-6 count">
-                        1
+                        {qty || 1}
                       </span>
-                      <button className="border mt-4  pt-3 pb-3 pr-6 pl-6">
-                        -
+                      <button
+                        className="border mt-4  pt-3 pb-3 pr-6 pl-6"
+                        onClick={() => decreaseQuantity(data.id, qty)}
+                      >
+                        <PiMinus />
                       </button>
                     </div>
                     <div className="addtocart mr-3">
-                      <button className="mt-4 btn pt-3 pb-3 pr-6 pl-6">
+                      <button
+                        className="mt-4 btn pt-3 pb-3 pr-6 pl-6"
+                        onClick={() => addItemToCart(data)}
+                      >
                         Add To Cart
                       </button>
                     </div>

@@ -94,7 +94,7 @@ export const Feature = () => {
       <Model
         isModalOpen={isModalOpen !== null}
         data={feateures.find((feature) => feature.id === isModalOpen)}
-        handleClose={handleClose} 
+        handleClose={handleClose}
       />
     </div>
   );

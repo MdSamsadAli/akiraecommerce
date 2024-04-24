@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { navbar } from "../data/Data";
 import { BiSearch, BiShoppingBag } from "react-icons/bi";
 import Sidebar from "./Sidebar";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -22,6 +23,8 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const { totalItems } = useSelector((state) => state.cart);
 
   return (
     <>
@@ -51,7 +54,7 @@ const Header = () => {
                 <BiShoppingBag />
               </Link>
               <div className="items_count">
-                <span className="text-white">0</span>
+                <span className="text-white">{totalItems}</span>
               </div>
             </div>
           </div>

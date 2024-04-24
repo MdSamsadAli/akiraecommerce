@@ -24,6 +24,7 @@ export const BestSeller = () => {
   const handleClose = () => {
     setIsModalOpen(null);
   };
+
   return (
     <div>
       <div>
